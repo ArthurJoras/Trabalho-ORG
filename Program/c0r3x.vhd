@@ -9,7 +9,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 library c0r3x;
 use c0r3x.c0r3x_pkg.all;
 
-entity c0r3x is
+entity C0r3x is
   Port (
       rst_n                  : in  std_logic;
       clk                    : in  std_logic;
@@ -18,9 +18,9 @@ entity c0r3x is
       mem_write_enable       : out std_logic;
       mem_read_enable        : out std_logic
    );
-end c0r3x;
+end C0r3x;
 
-architecture rtl of c0r3x is
+architecture rtl of C0r3x is
 
     signal pc_enable_signal              : std_logic;
     signal mem_write_enable_signal       : std_logic;

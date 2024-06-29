@@ -31,7 +31,7 @@ entity data_path is
         address_pc              : out std_logic_vector (7 downto 0);
 
         mem_out                 : in  std_logic_vector (15 downto 0);
-        mem_in                  : out std_logic_vector (15 downto 0);
+        mem_in                  : out std_logic_vector (15 downto 0)
     );
 end data_path;
 
@@ -127,13 +127,13 @@ architecture rtl of data_path is
                 when "0101" =>
                     -- BEQ
                     decoded_inst <= I_BEQ;
-                    mem_addr <= instruction(11 downto 6);
+                    mem_addr <= program_counter(7 downto 6) & instruction(11 downto 6);
                     reg_op_a <= instruction(5 downto 3);
                     reg_op_b <= instruction(2 downto 0);
                 when "0110" =>
                     -- BNEQ
                     decoded_inst <= I_BNE;
-                    mem_addr <= instruction(11 downto 6);
+                    mem_addr <= program_counter(7 downto 6) & instruction(11 downto 6);
                     reg_op_a <= instruction(5 downto 3);
                     reg_op_b <= instruction(2 downto 0);
                 when "1000" =>
@@ -150,8 +150,8 @@ architecture rtl of data_path is
                     -- NOP
                     decoded_inst <= I_ADD;
                     reg_dest <= "001";
-                    reg_op_a <= "000"
-                    reg_op_b <= "001"
+                    reg_op_a <= "000";
+                    reg_op_b <= "001";
             end case;
     end process;
     

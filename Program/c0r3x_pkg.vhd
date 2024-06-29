@@ -33,7 +33,7 @@ package c0r3x_pkg is
 			address_pc          : out std_logic_vector (7 downto 0);
 
 			mem_out             : in  std_logic_vector (15 downto 0);
-			mem_in              : out std_logic_vector (15 downto 0);
+			mem_in              : out std_logic_vector (15 downto 0)
 		);
 	end component;
 
