@@ -32,9 +32,8 @@ entity control_unit is
 end control_unit;
 
 
-architecture rtl of control_unit is
-        
-        type state_type is(
+architecture rtl of control_unit is    
+    type state_type is(
         FETCH,
         DECODE,
         ALU,
@@ -42,9 +41,9 @@ architecture rtl of control_unit is
         PROX,
         BEQ,
         BNE
-        );
-        signal current : state_type;    
-        signal nextstate : state_type;
+    );
+    signal current : state_type;    
+    signal nextstate : state_type;
         
 begin
 
