@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: UERGS
--- Engineer: Arthur Joras && Artur de Camargo
+-- Engineer: Arthur Joras && Artur de Camargo .
 ----------------------------------------------------------------------------------
 
 
@@ -13,6 +13,7 @@ entity memory is
 	port(		
         clk                 : in  std_logic;
         escrita             : in  std_logic;
+		leitura             : in  std_logic;
         rst_n               : in  std_logic;        
         entrada_memoria     : in  std_logic_vector(15 downto 0);
         endereco_memoria    : in  std_logic_vector(7  downto 0);
@@ -294,9 +295,9 @@ begin
 			mem(255)  <= "0000000000000000";
 	else
 	    -- read from memory
-		if((escrita = '0'))then 
-		        saida_memoria(15 downto 0) <= mem(to_integer(unsigned(endereco_memoria)));
-		-- write in memory		
+		if((leitura = '1'))then 
+			saida_memoria(15 downto 0) <= mem(to_integer(unsigned(endereco_memoria)));
+	-- write in memory		
 		elsif ((escrita = '1')) then 		
 			mem(to_integer(unsigned(endereco_memoria))) <= entrada_memoria(15 downto 0);
 		end if;

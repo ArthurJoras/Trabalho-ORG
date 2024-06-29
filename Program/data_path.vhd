@@ -24,6 +24,7 @@ entity data_path is
     lw_select               : in  std_logic;
     
     flag_zero               : out std_logic;
+    flag_equal              : out std_logic;
     
     alu_op                  : in  std_logic_vector (3 downto 0);
     decoded_inst            : out decoded_instruction_type;
@@ -92,6 +93,7 @@ architecture rtl of data_path is
     reg_alu_out <= alu_out;
     instruction <= instruction_reg;
     mem_data_reg_to_reg <= mem_data_reg;
+    flag_equal <= equal;
     
     ----- DECODIFICADOR DE INSTRUÇÕES -----
     process (instruction)
@@ -150,7 +152,7 @@ architecture rtl of data_path is
                 decoded_inst <= I_ADD;
                 reg_dest <= "001";
                 reg_op_a <= "000"
-                reg_op_b <= "000"
+                reg_op_b <= "001"
         end case;
     end process;
     

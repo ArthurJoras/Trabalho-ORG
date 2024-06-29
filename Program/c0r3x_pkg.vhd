@@ -28,6 +28,7 @@ package c0r3x_pkg is
 		lw_select               : in  std_logic;
 		
 		flag_zero           : out std_logic;
+		flag_equal		  	: out std_logic;
 		
 		alu_op              : in  std_logic_vector (3 downto 0);
 		decoded_inst        : out decoded_instruction_type;
@@ -42,17 +43,18 @@ package c0r3x_pkg is
     Port ( 
 		clk                 : in  std_logic;
         rst_n               : in  std_logic;
-        pc_en               : out std_logic;
-        mem_write_en        : out std_logic;
-        mem_read_en         : out std_logic;       
-        ir_en               : out std_logic;
-        mdr_en              : out std_logic;
-        reg_write_en        : out std_logic;
-        jbs_sel             : out std_logic;
-        lw_sel              : out std_logic;
+        pc_enable           : out std_logic;
+        mem_write_enable    : out std_logic;
+        mem_read_enable     : out std_logic;       
+        inst_reg_enable		: out std_logic;
+        mem_data_reg_enable	: out std_logic;
+        reg_write_enable	: out std_logic;
+        jump_select			: out std_logic;
+        lw_select			: out std_logic;
         flag_zero           : in  std_logic;
+		flag_equal			: in  std_logic;
         decoded_inst        : in  decoded_instruction_type;
-        alu_op              : out std_logic_vector(1 downto 0)
+        alu_op              : out std_logic_vector(3 downto 0)
 	);
   end component;
   
